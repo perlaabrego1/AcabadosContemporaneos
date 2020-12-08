@@ -28,3 +28,32 @@ create table _Login(
 idEmpleado varchar(30),
 contraseña varchar(20),
 foreign key(idEmpleado) references Empleados(idEmpleado));
+
+/*Pruebas*/
+
+
+/*Inserciones*/
+/*Empleados y login */
+/*Procedimiento para dar de alta al empleado y al mismo tiempo
+se genera su login con su id y su curp como contraseña*/
+DELIMITER // 
+CREATE PROCEDURE altaEmpleado(idEmpleado varchar(30),
+Nombre varchar(50),
+ApellidoPat varchar(30),
+ApellidoMat varchar(30),
+CURP varchar(30),
+RFC varchar(30),
+NSS varchar(30),
+Puesto varchar(30)) 
+BEGIN 
+	insert into Empleados values (idEmpleado, Nombre, ApellidoPat, ApellidoMat, CURP, RFC, NSS, Puesto);
+    insert into _Login values (idEmpleado, CURP);
+END; // 
+DELIMITER ; 
+/*Se debe mandar a llamar al procedimiento para dar de alta al empleado */
+call altaEmpleado ('100', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');
+call altaEmpleado ('110', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');
+/*Listas*/
+insert into Listas values (3030, '40');
+/*ListasEmpleados*/
+insert into ListaEmp values (3030, '100', null, 0);
