@@ -27,4 +27,4 @@ primary key(NoFolio, idEmpleado));
 create table _Login(
 idEmpleado varchar(30),
 contraseña varchar(20),
-foreign key(NoFolio) references Listas(NoFolio));
+foreign key(idEmpleado) references Empleados(idEmpleado));
