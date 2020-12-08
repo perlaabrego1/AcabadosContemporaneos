@@ -21,7 +21,8 @@ idEmpleado varchar(30),
 fechaAsist date,
 cantChecadas int,
 foreign key(NoFolio) references Listas(NoFolio),
-foreign key(idEmpleado) references Empleados(idEmpleado));
+foreign key(idEmpleado) references Empleados(idEmpleado),
+primary key(NoFolio, idEmpleado));
 
 create table _Login(
 idEmpleado varchar(30),
