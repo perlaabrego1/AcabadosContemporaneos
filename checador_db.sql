@@ -12,8 +12,8 @@ NSS varchar(30),
 Puesto varchar(30));
 
 create table Listas(
-NoFolio int primary key,
-Periodo varchar(30));
+NoFolio int primary key auto_increment,
+periodoSemana int);
 
 create table ListaEmp(
 NoFolio int not null,
@@ -54,6 +54,6 @@ DELIMITER ;
 call altaEmpleado ('100', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');
 call altaEmpleado ('110', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');
 /*Listas*/
-insert into Listas values (3030, '40');
+insert into Listas (periodoSemana) values ( week(curdate()) ); /*NoFolio tiene valor autoincrementable, unicamente se inserta el númerode semana del año*/
 /*ListasEmpleados*/
-insert into ListaEmp values (3030, '100', null, 0);
+insert into ListaEmp values (1, '100', null, 0);/*falta detalle, se debe obtener ultimo NoFolio de la tabla Listas, e insertarlo en la Tabla ListaEmp*/
