@@ -13,7 +13,7 @@ Puesto varchar(30));
 
 create table Listas(
 NoFolio int primary key auto_increment,
-periodoSemana int);
+periodoSemana int unique);
 
 create table ListaEmp(
 NoFolio int not null,
@@ -50,10 +50,28 @@ BEGIN
     insert into _Login values (idEmpleado, CURP);
 END; // 
 DELIMITER ; 
-/*Se debe mandar a llamar al procedimiento para dar de alta al empleado */
-call altaEmpleado ('100', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');
+call altaEmpleado ('100', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');/*Se debe mandar a llamar al procedimiento para dar de alta al empleado */
 call altaEmpleado ('110', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');
 /*Listas*/
-insert into Listas (periodoSemana) values ( week(curdate()) ); /*NoFolio tiene valor autoincrementable, unicamente se inserta el númerode semana del año*/
-/*ListasEmpleados*/
-insert into ListaEmp values (1, '100', null, 0);/*falta detalle, se debe obtener ultimo NoFolio de la tabla Listas, e insertarlo en la Tabla ListaEmp*/
+/*procedimiento que al generar una lista, inserta a todos los empleados existentes en la base de datos*/
+DELIMITER // 
+CREATE PROCEDURE generarListas() 
+BEGIN 
+	insert into Listas  (periodoSemana) values (week(curdate()));
+    SET @id = LAST_INSERT_ID();
+    insert into listaemp (NoFolio, idEmpleado)
+    select @id, Empleados.idEmpleado from Empleados;
+END; // 
+DELIMITER ; 
+call generarListas();/*se debe mandar a llamar al procedimiento para generarla*/
+
+/*procedimiento para registrar checada*/
+DELIMITER // 
+CREATE PROCEDURE generarChec(id varchar(30), cant int) 
+BEGIN 
+	set @folio = (select max(NoFolio) from listaemp);
+	update listaemp set cantChecadas = cant, fechaAsist = curdate()
+	where (NoFolio = @folio and idEmpleado = id);
+END; // 
+DELIMITER ; 
+call generarChec(parametro1, parametro2);
