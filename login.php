@@ -23,11 +23,12 @@
                 <img id="usuario" src="img/logo.png" ></img>
             </div>
         </nav>
-        <form id = "form-ingresar" action="registro.php" method="post">
-            <input type=text name= "inp_usr"  placeholder = "Ingrese ID" required> </input>
-            <button  type="submit" class="button">Checar</button>
-        </form>
-        <div>
-        </div>
+        <form id = "form-ingresar" action="login_db.php" method="post">
+            <strong>INGRESAR</strong>
+            <h4>A</h4>
+            <input type=text name= "inp_usr"  placeholder = "Ingrese usuario" required> </input>
+            <input type=password name= "inp_pswd"  placeholder = "Ingrese contraseña" required> </input>
+            <button  type="submit" class="button">Ingresar</button>
+        </form>  
     </body>
 </html>

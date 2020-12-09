@@ -23,11 +23,10 @@
                 <img id="usuario" src="img/logo.png" ></img>
             </div>
         </nav>
-        <form id = "form-ingresar" action="registro.php" method="post">
-            <input type=text name= "inp_usr"  placeholder = "Ingrese ID" required> </input>
-            <button  type="submit" class="button">Checar</button>
-        </form>
-        <div>
-        </div>
+        <form id = "form-ingresar" action="login.php" method="post">
+            <strong>SOMOS DISTRIBUIDORES</strong>
+            <h4>DIRECTOS DE LAS MEJORES MARCAS</h4>
+            <button  type="submit" class="button">Ingresar</button>
+        </form>  
     </body>
 </html>
