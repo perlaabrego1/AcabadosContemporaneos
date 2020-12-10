@@ -8,18 +8,21 @@
         <style type="text/css">
             body{background-image:url(img/login3.jpg);  background-size: cover;color:black;}   
             * {padding: 0; margin: 0; font-family: century gothic; text-align: center;}
-            form {border-radius: 20px;box-shadow: inset 0 0 0 var(--border-size) currentcolor;padding: 40px 40px; background-color: #001a1a66; margin: calc(25% + 60px); margin-top: 40px; padding-top: 15px; margin-bottom: 0px}
-            strong{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:30px }
+            form {border-radius: 20px;box-shadow: inset 0 0 0 var(--border-size) currentcolor;padding: 40px 40px; background-color: #001a1a66; margin: calc(25% + 60px); margin-top: 20px; padding-top: 10px; margin-bottom: 0px}
+            strong{text-align: center; padding: 12px; color: maroon; font-family: century gothic; font-size:30px }
             h4{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:25px }
             button {width: calc(100% - 20px); padding: 9px; margin: auto; margin-top: 12px; font-size: 20px}
-            button[type='submit']{background-color: #000066; color: #fff;  width: 300px; margin: 0 10%; margin-top: 50px; border: none;}
+            button[type='submit']{background-color: #000066; color: #fff;  width: 300px; margin: 0 10%; margin-top: 30px; border: none;}
             .button:hover {background-color: #006699} 
             .boton1{background-color: #F7F9F9; width: 200px; padding: 9px; margin: auto;  font-size: 20px; color: black;  border: none;border-width: 1px;border-style: solid;border-color: black;}
             input{font-size:20px}
             #empleado{font-size:20px}
             #usuario{width: 30%; height: 25%;}
-            #datos{font-size:30px; color: black;background-color: #66ff33;     transition: all .5s ease;}
-            #datos2{text-align: center;}       
+            #datos{font-size:30px; color: Maroon;background-color: #ff8080;}
+            #datos2{text-align: center;}
+            #dts{font-size:30px; color: #00cc00;background-color: #b3ffb3;}
+            #dts2{text-align: center;}
+            h2{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:30px}       
         </style>
     </head>
     
@@ -45,18 +48,18 @@
                     $cant_filas = mysqli_num_rows($consulta);
                     if($cant_filas != 0)
                     {
-                        echo "<h2 id='datos2'><span id=datos>DATOS CORRECTOS</span></h2>";
+                        echo "<h2 id='dts2'><span id=dts>Los datos ingresados son correctos</span></h2>";
                         #header("Location: registro.php");
                         #header("Location: usr_admin.php?varUsr=$usr"); Se usaría para llevarlo al perfil de administrador
                     }
                     else
-                        echo "<h2 id='datos2'><span id=datos>DATOS INCORRECTOS</span></h2>";
+                        echo "<h2 id='datos2'><span id=datos><strong>¡Error!</strong>Los datos ingresados son incorrectos</span></h2>";
                 }
                 mysqli_close($con_mysql);
             }
         ?>
         <form id = "form-ingresar" action="registro.php" method="post">
-            <strong>INGRESE SU ID Y CONTRASEÑA</strong>
+            <h2>INGRESE SU ID Y CONTRASEÑA</h2>
             <div class="form-group" align="center">
                     <img id="usuario" src="img/usuario.png" ></img>
                 </div>
