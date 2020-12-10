@@ -1,3 +1,27 @@
+<html>
+    <head>
+        <title>Acabados Contemporaneos</title>
+        <!-- CSS BOOTSTRAP-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="scripts/jquery-3.4.1.js"></script>
+        <script src="scripts/bootstrap.js"></script>
+        <style type="text/css">
+            body{background-image:url(img/login3.jpg);  background-size: cover;color:black;font-size:25px}   
+            * {padding: 0; margin: 0; font-family: century gothic; text-align: center;}
+              .boton1{background-color: black; width: 200px; padding: 9px; margin: auto;  font-size: 20px; color: #fff;  border: none;}
+            #usuario{width: 30%; height: 25%;}
+        </style>
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-light" style="background-color: black">
+            <div class="navbar-brand">
+            <button onclick="location.href='login.php'" class="boton1">Regresar</button>
+            </div>
+            <div class="salir">
+                <button onclick="location.href='index.php'" class="boton1">Salir</button>
+            </div>
+        </nav>
 <?php
     $usr = $_REQUEST['inp_usr'];
     $pswd = $_REQUEST['inp_pswd'];
@@ -17,3 +41,6 @@
     }
     mysqli_close($con_mysql);
 ?>
+    </body>
+    
+    </html>
