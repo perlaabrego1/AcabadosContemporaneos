@@ -27,7 +27,7 @@
         <div id="texto">
         <strong id="texto">¡BIENVENIDO!</strong>
         </div>
-        <form id = "form-ingresar" action="login.php" method="post">
+        <form id = "form-ingresar" action="registro.php" method="post">
             <strong>SOMOS DISTRIBUIDORES</strong>
             <h4>DIRECTOS DE LAS MEJORES MARCAS</h4>
             <button  type="submit" class="button">Ingresar</button>

@@ -41,6 +41,5 @@
     }
     mysqli_close($con_mysql);
 ?>
-    </body>
-    
-    </html>
+    </body> 
+</html>
