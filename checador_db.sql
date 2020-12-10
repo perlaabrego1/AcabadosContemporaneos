@@ -52,6 +52,7 @@ END; //
 DELIMITER ; 
 call altaEmpleado ('100', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');/*Se debe mandar a llamar al procedimiento para dar de alta al empleado */
 call altaEmpleado ('110', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');
+call altaEmpleado ('120', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');
 /*Listas*/
 /*procedimiento que al generar una lista, inserta a todos los empleados existentes en la base de datos*/
 DELIMITER // 
