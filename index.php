@@ -14,8 +14,8 @@
             button {width: 200px; padding: 9px; margin: auto; margin-top: 12px; font-size: 20px}
             button[type='submit']{background-color: #000066; color: #fff; width: 300px; margin: 0 10%; margin-top: 50px; border: none;}
             .button:hover {background-color: #006699}     
-            #texto{background-color:#001a1a66;color: #e0dfdc;letter-spacing: .1em;text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424,  0 22px 30px rgba(0, 0, 0, 0.9);}   
-            #texto2{color: #1f262e; letter-spacing: .1em;text-shadow: -1px -1px 1px #111 #363636; font-size: 60px;}   
+            #texto{background-color:#001a1a66;color: #e0dfdc;letter-spacing: .1em;}   
+            #texto2{color: #1f262e; letter-spacing: .1em;text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a; font-size: 60px;}   
         
         </style>
     </head>
