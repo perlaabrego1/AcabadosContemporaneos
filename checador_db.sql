@@ -65,6 +65,15 @@ END; //
 DELIMITER ; 
 call generarListas();/*se debe mandar a llamar al procedimiento para generarla*/
 
+/*consulta de los empleados en la lista por folio*/
+DELIMITER // 
+CREATE PROCEDURE consultaListaEmp() 
+BEGIN 
+	set @maxfolio = (select max(NoFolio) from ListaEmp);
+	select idEmpleado from ListaEmp where NoFolio = @maxfolio;
+END; // 
+DELIMITER ; 
+call consultaListaEmp();
 /*procedimiento para registrar checada*/
 DELIMITER // 
 CREATE PROCEDURE generarChec(id varchar(30), cant int) 
@@ -75,3 +84,4 @@ BEGIN
 END; // 
 DELIMITER ; 
 call generarChec(parametro1, parametro2);
+

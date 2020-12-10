@@ -24,10 +24,31 @@
             </div>
         </nav>
         <form id = "form-ingresar" action="registro.php" method="post">
-            <input type=text name= "inp_usr"  placeholder = "Ingrese ID" required> </input>
+            <?php
+                $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
+                echo'<select name = empleados required>';
+                $comando = "call consultaListaEmp();";
+                $consulta = mysqli_query($con_mysql, $comando);
+                $cant_filas = mysqli_num_rows($consulta);
+                if($cant_filas == 0)
+                    echo '<option value="" disabled selected>No cuenta con materias dadas de alta</option>';
+                else{
+                    $contador = 0;
+                    echo '<option value="" disabled selected>Seleccione su ID</option>';
+                    while($cant_filas != 0 && $contador<$cant_filas)
+                    {
+                        $dato = $consulta->fetch_object();
+                        $contenido = $dato->idEmpleado;
+                        echo '<option value = '.$contenido.'>'.$contenido.'</option>';
+                        $contador++;
+                    }
+                }
+                echo'</select>';
+            ?>  
             <button  type="submit" class="button">Checar</button>
         </form>
         <div>
+       
         </div>
     </body>
 </html>

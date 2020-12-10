@@ -8,7 +8,10 @@
     {
         $cant_filas = mysqli_num_rows($consulta);
         if($cant_filas != 0)
-            header("Location: usr_admin.php?varUsr=$usr");
+        {
+            header("Location: registro.php");
+            #header("Location: usr_admin.php?varUsr=$usr"); Se usaría para llevarlo al perfil de administrador
+        }
         else
             echo "USUARIO O CONTRASEÑA INCORRECTOS";
     }

@@ -23,7 +23,7 @@
                 <img id="usuario" src="img/logo.png" ></img>
             </div>
         </nav>
-        <form id = "form-ingresar" action="" method="post">
+        <form id = "form-ingresar" action="login_db.php" method="post">
             <strong>INGRESAR</strong>
             <h4></h4>
             <input type=text name= "inp_usr"  placeholder = "Ingrese usuario" required> </input>
