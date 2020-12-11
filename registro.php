@@ -32,7 +32,7 @@
                 <button onclick="location.href='index.php'" class="boton1">Salir</button>
             </div>
         </nav>
-        <?php
+        <?php #Verifica los datos ingresados
             if($_POST)
             {
                 $usr = $_REQUEST['inp_usr'];
@@ -62,14 +62,15 @@
                 </div>
             <h4></h4>
             <!--<input type=text name= "inp_usr"  placeholder = "ID" required> </input>-->
-            <?php
+
+            <?php #Genera los empleados activos en ese momento
                 $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
                 echo'<select id=empleado name = inp_usr required>';
                 $comando = "call consultaListaEmp();";
                 $consulta = mysqli_query($con_mysql, $comando);
                 $cant_filas = mysqli_num_rows($consulta);
                 if($cant_filas == 0)
-                    echo '<option value="" disabled selected>No se cuenta registrado</option>';
+                    echo '<option value="" disabled selected>No hay empleados registrados</option>';
                 else{
                     $contador = 0;
                     echo '<option value="" disabled selected>Seleccione su ID</option>';

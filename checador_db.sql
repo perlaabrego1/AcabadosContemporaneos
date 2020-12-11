@@ -66,7 +66,7 @@ END; //
 DELIMITER ; 
 call generarListas();/*se debe mandar a llamar al procedimiento para generarla*/
 
-/*consulta de los empleados en la lista por folio*/
+/*consulta de los empleados en la lista por folio de la lista*/
 DELIMITER // 
 CREATE PROCEDURE consultaListaEmp() 
 BEGIN 
