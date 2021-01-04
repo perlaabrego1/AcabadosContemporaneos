@@ -23,8 +23,8 @@
             #datos{font-size:30px; color: Maroon;background-color: #ff8080;}
             #datos2{text-align: center;}
             #dts{font-size:30px; color: #00cc00;background-color: #b3ffb3;}
-            #dts2{text-align: center;}
-            h3{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:30px} 
+            #dts2{text-align: center; font-size:10px;}
+            h3{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:10px;} 
             #dch{float: right; width: 29%; height: 85%; background-color: #0f0059; color: white;}    
         </style>
     </head>
@@ -74,7 +74,7 @@
                 </form>  
             </div>
             <div id = "dch">
-                <h3>INFORMACIÓN DE EMPLEADO</h3>
+                <h2>INFORMACIÓN DE EMPLEADO</h2>
                 <table class="table table-dark">
                     <thead>
                         <tr>
@@ -173,8 +173,45 @@
                                 else
                                 {
                                     echo "Ya has terminado tu jornada laboral";
-
-                                    $comando = "update ListaEmp set  ";
+                                    $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
+                                    $comando = "select max(NoFolio) as 'max' from listaemp";
+                                    $consulta = mysqli_query($con_mysql, $comando);
+                                    if($consulta)
+                                    {
+                                        $cant_filas = mysqli_num_rows($consulta);
+                                        if($cant_filas != 0)
+                                        {
+                                            $contador = 0;
+                                            while($contador<$cant_filas)
+                                            {
+                                                $dato = $consulta->fetch_object();
+                                                $fol = $dato->max;
+                                                $contador++;
+                                            }
+                                        }
+                                    }
+                                    switch(date("N"))
+                                    {
+                                        case 1:
+                                            $comando = "update ListaEmp set  dia1 = $c where idEmpleado =  $usr and NoFolio = $fol";
+                                            break;
+                                        case 2:
+                                            $comando = "update ListaEmp set  dia2 = $c where idEmpleado =  $usr";
+                                            break;
+                                        case 3:
+                                            $comando = "update ListaEmp set  dia3 = $c where idEmpleado =  $usr";
+                                            break;
+                                        case 4:
+                                            $comando = "update ListaEmp set  dia4 = $c where idEmpleado =  $usr";
+                                            break;
+                                        case 5:
+                                            $comando = "update ListaEmp set  dia5 = $c where idEmpleado =  $usr";
+                                            break;
+                                        case 6:
+                                            $comando = "update ListaEmp set  dia6 = $c where idEmpleado =  $usr";
+                                            break;
+                                    }
+                                    $consulta = mysqli_query($con_mysql, $comando);
                                 }
                             }          
                         ?>
