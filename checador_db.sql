@@ -62,6 +62,7 @@ BEGIN
     SET @id = LAST_INSERT_ID();
     insert into listaemp (NoFolio, idEmpleado)
     select @id, Empleados.idEmpleado from Empleados;
+    update listaemp set cantChecadas = 0;
 END; // 
 DELIMITER ; 
 call generarListas();/*se debe mandar a llamar al procedimiento para generarla*/
@@ -84,5 +85,13 @@ BEGIN
 	where (NoFolio = @folio and idEmpleado = id);
 END; // 
 DELIMITER ; 
-call generarChec(parametro1, parametro2);
+call generarChec(id, cantidad);
 
+DELIMITER // 
+CREATE PROCEDURE consultarChecada(id varchar(30)) 
+BEGIN 
+	set @folio = (select max(NoFolio) from listaemp);
+	select idEmpleado, fechaAsist, cantChecadas from ListaEmp
+	where (NoFolio = @folio and idEmpleado = id);
+END; // 
+DELIMITER ; 
