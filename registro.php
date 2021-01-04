@@ -129,7 +129,7 @@
                                             echo"
                                             <th scope='col'>$dato->idEmpleado</th>
                                             <th scope='col'>$dato->fechaAsist</th>
-                                            <th scope='col'>HORA</th>
+                                            <th scope='col'>$dato->hora</th>
                                             <th scope='col'>$dato->cantChecadas</th>
                                             ";
                                             $contador++;
@@ -159,7 +159,7 @@
                                 }
                                 date_default_timezone_set('America/Tijuana');
                                 $F = date("Y"). "-" .date("m"). "-" . date("d");
-                                if($c < 4 && $f ==$F)
+                                if($c < 4 && $f != $F)
                                 {
                                     $c = $c + 1;
                                     mysqli_close($con_mysql);
@@ -170,7 +170,12 @@
                                         echo mysqli_error($con_mysql);
                                     }
                                 }
-                                else echo "Ya has terminado tu jornada laboral";
+                                else
+                                {
+                                    echo "Ya has terminado tu jornada laboral";
+
+                                    $comando = "update ListaEmp set  ";
+                                }
                             }          
                         ?>
                         </tr>

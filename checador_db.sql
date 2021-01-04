@@ -88,17 +88,17 @@ DELIMITER //
 CREATE PROCEDURE generarChec(id varchar(30), cant int) 
 BEGIN 
 	set @folio = (select max(NoFolio) from listaemp);
-	update listaemp set cantChecadas = cant, fechaAsist = curdate()
+	update listaemp set cantChecadas = cant, fechaAsist = curdate(),
+    hora = (select time (NOW()) )
 	where (NoFolio = @folio and idEmpleado = id);
 END; // 
 DELIMITER ; 
 call generarChec(id, cantidad);
-/*select time (NOW()) as hora*/
 DELIMITER // 
 CREATE PROCEDURE consultarChecada(id varchar(30)) 
 BEGIN 
 	set @folio = (select max(NoFolio) from listaemp);
-	select idEmpleado, fechaAsist, cantChecadas from ListaEmp
+	select idEmpleado, fechaAsist, cantChecadas, hora from ListaEmp
 	where (NoFolio = @folio and idEmpleado = id);
 END; // 
 DELIMITER ; 
