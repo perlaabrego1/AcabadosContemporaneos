@@ -75,87 +75,107 @@
             </div>
             <div id = "dch">
                 <h3>INFORMACIÓN DE EMPLEADO</h3>
-                <?php #Verifica datos ingresados
-                    if($_POST)
-                    {
-                        $usr = $_REQUEST['inp_usr'];
-                        $pswd = $_REQUEST['inp_pswd'];
-                        $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
-                        $comando = "select * from _Login where idEmpleado = '$usr' and contraseña = '$pswd';";
-                        $consulta = mysqli_query($con_mysql, $comando);
-                        if($consulta)
-                        {
-                            $cant_filas = mysqli_num_rows($consulta);
-                            if($cant_filas != 0)
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <?php #Verifica datos ingresados
+                            if($_POST)
                             {
-                                echo "<h3 id='dts2'><span id=dts>Los datos ingresados son correctos</span></h3>";
-                                mysqli_close($con_mysql);
+                                $usr = $_REQUEST['inp_usr'];
+                                $pswd = $_REQUEST['inp_pswd'];
                                 $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
-                                Checar($con_mysql, $_REQUEST['inp_usr']);
-                                $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
-                                consultaChecada($con_mysql, $usr);
-                                #header("Location: registro.php");
-                                #header("Location: usr_admin.php?varUsr=$usr"); Se usaría para llevarlo al perfil de administrador
-                            }
-                            else
-                                echo "<h2 id='datos2'><span id=datos><strong>¡Error!</strong>Los datos ingresados son incorrectos</span></h2>";
-                        }
-                    }
-                    function consultaChecada($con_mysql, $usr)
-                    {
-                        $comando = "call consultarChecada($usr);";
-                        $consulta = mysqli_query($con_mysql, $comando);
-                        if($consulta)
-                        {
-                            $cant_filas = mysqli_num_rows($consulta);
-                            if($cant_filas != 0)
-                            {
-                                $contador = 0;
-                                while($cant_filas != 0 && $contador<$cant_filas)
+                                $comando = "select * from _Login where idEmpleado = '$usr' and contraseña = '$pswd';";
+                                $consulta = mysqli_query($con_mysql, $comando);
+                                if($consulta)
                                 {
-                                    $dato = $consulta->fetch_object();
-                                    echo "<br>";
-                                    echo "ID: ".$dato->idEmpleado."<br>";
-                                    echo "Fecha: ".$dato->fechaAsist."<br>";
-                                    echo "Número checadas: ".$dato->cantChecadas;
-                                    $contador++;
+                                    $cant_filas = mysqli_num_rows($consulta);
+                                    if($cant_filas != 0)
+                                    {
+                                        echo "<h3 id='dts2'><span id=dts>Los datos ingresados son correctos</span></h3>";
+                                        mysqli_close($con_mysql);
+                                        $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
+                                        Checar($con_mysql, $_REQUEST['inp_usr']);
+                                        $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
+                                        consultaChecada($con_mysql, $usr);
+                                        #header("Location: registro.php");
+                                        #header("Location: usr_admin.php?varUsr=$usr"); Se usaría para llevarlo al perfil de administrador
+                                    }
+                                    else
+                                        echo "<h2 id='datos2'><span id=datos><strong>¡Error!</strong>Los datos ingresados son incorrectos</span></h2>";
                                 }
                             }
-                        }        
-                    }
-                    function Checar($con_mysql, $usr)
-                    {
-                        $comando ="call consultarChecada($usr);";
-                        $consulta = mysqli_query($con_mysql, $comando);
-                        $c = 0;
-                        if($consulta)
-                        {
-                            $cant_filas = mysqli_num_rows($consulta);
-                            if($cant_filas != 0)
+                            function consultaChecada($con_mysql, $usr)
                             {
-                                $contador = 0;
-                                while($contador<$cant_filas)
+                                $comando = "call consultarChecada($usr);";
+                                $consulta = mysqli_query($con_mysql, $comando);
+                                if($consulta)
                                 {
-                                    $dato = $consulta->fetch_object();
-                                    $c = $dato->cantChecadas;
-                                    $contador++;
+                                    $cant_filas = mysqli_num_rows($consulta);
+                                    if($cant_filas != 0)
+                                    {
+                                        $contador = 0;
+                                        while($cant_filas != 0 && $contador<$cant_filas)
+                                        {
+                                            $dato = $consulta->fetch_object();
+                                            
+                                            echo"
+                                            <th scope='col'>$dato->idEmpleado</th>
+                                            <th scope='col'>$dato->fechaAsist</th>
+                                            <th scope='col'>HORA</th>
+                                            <th scope='col'>$dato->cantChecadas</th>
+                                            ";
+                                            $contador++;
+                                        }
+                                    }
+                                }        
+                            }
+                            function Checar($con_mysql, $usr)
+                            {
+                                $comando ="call consultarChecada($usr);";
+                                $consulta = mysqli_query($con_mysql, $comando);
+                                $c = 0;
+                                if($consulta)
+                                {
+                                    $cant_filas = mysqli_num_rows($consulta);
+                                    if($cant_filas != 0)
+                                    {
+                                        $contador = 0;
+                                        while($contador<$cant_filas)
+                                        {
+                                            $dato = $consulta->fetch_object();
+                                            $c = $dato->cantChecadas;
+                                            $f = $dato->fechaAsist;
+                                            $contador++;
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                        if($c < 4)
-                        {
-                            $c = $c + 1;
-                            mysqli_close($con_mysql);
-                            $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
-                            $comando = "call generarChec($usr, $c);";
-                            $consulta = mysqli_query($con_mysql, $comando);
-                            if(!$consulta){
-                                echo mysqli_error($con_mysql);
-                            }
-                        }
-                        else echo "Ya has terminado tu jornada laboral";
-                    }          
-                ?>            
+                                date_default_timezone_set('America/Tijuana');
+                                $F = date("Y"). "-" .date("m"). "-" . date("d");
+                                if($c < 4 && $f ==$F)
+                                {
+                                    $c = $c + 1;
+                                    mysqli_close($con_mysql);
+                                    $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
+                                    $comando = "call generarChec($usr, $c);";
+                                    $consulta = mysqli_query($con_mysql, $comando);
+                                    if(!$consulta){
+                                        echo mysqli_error($con_mysql);
+                                    }
+                                }
+                                else echo "Ya has terminado tu jornada laboral";
+                            }          
+                        ?>
+                        </tr>
+                    </tbody>
+                </table>                            
             </div>
         </div>
     </body>
