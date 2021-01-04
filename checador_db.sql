@@ -69,7 +69,7 @@ BEGIN
     SET @id = LAST_INSERT_ID();
     insert into listaemp (NoFolio, idEmpleado)
     select @id, Empleados.idEmpleado from Empleados;
-    update listaemp set cantChecadas = 0;
+    update listaemp set cantChecadas = 0, dia1 = 0, dia2 = 0, dia3 = 0, dia4 = 0, dia5 = 0, dia6 = 0;
 END; // 
 DELIMITER ; 
 call generarListas();/*se debe mandar a llamar al procedimiento para generarla*/
@@ -93,7 +93,7 @@ BEGIN
 END; // 
 DELIMITER ; 
 call generarChec(id, cantidad);
-
+/*select time (NOW()) as hora*/
 DELIMITER // 
 CREATE PROCEDURE consultarChecada(id varchar(30)) 
 BEGIN 
