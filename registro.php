@@ -8,6 +8,7 @@
         <style type="text/css">
             body{background-image:url(img/login3.jpg);  background-size: cover;color:black;}   
             * {padding: 0; margin: 0; font-family: century gothic; text-align: center;}
+            #principal{display: block; width: 100%; height: 100%; min-width: 900; min-height: 640; max-height: 100%;}
             form {border-radius: 20px;box-shadow: inset 0 0 0 var(--border-size) currentcolor;padding: 40px 40px; background-color: #001a1a66; margin: calc(25% + 60px); margin-top: 20px; padding-top: 10px; margin-bottom: 0px}
             #form-ingresar{position: absolute;}
             strong{text-align: center; padding: 12px; color: maroon; font-family: century gothic; font-size:30px }

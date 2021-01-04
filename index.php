@@ -8,6 +8,7 @@
         <style type="text/css">
             body{background-image:url(img/fondos.jpg);  background-size: cover;color:black; text-align: center; }   
             * {padding: 0; margin: 0; font-family: century gothic; text-align: center;}
+            #principal{display: block; width: 100%; height: 100%; min-width: 900; min-height: 640; max-height: 100%;}
             form {box-shadow: inset 0 0 0 var(--border-size) currentcolor;padding: 50px 50px;   margin-top: 70px; padding-top: 28px; margin-bottom: 50px}
             strong{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:30px }
             h4{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:25px }
@@ -21,21 +22,22 @@
     </head>
     
     <body>
-        <nav class="navbar navbar-light" style="background-color: #F7F9F9">
-            <div class="navbar-brand">
-                <img id="usuario" src="img/logo.png" ></img>
+        <div id = "principal">
+            <nav class="navbar navbar-light" style="background-color: #F7F9F9">
+                <div class="navbar-brand">
+                    <img id="usuario" src="img/logo.png" ></img>
+                </div>
+            </nav>
+            <div id="texto2">
+            <strong id="texto2">¡BIENVENIDO!</strong>
+                </div>
+            <div id="texto">
+            <form id = "form-ingresar" action="registro.php" method="post">
+                <strong>SOMOS DISTRIBUIDORES</strong>
+                <h4>DIRECTOS DE LAS MEJORES MARCAS</h4>
+                <button  type="submit" class="button">Ingresar</button>
+            </form>
             </div>
-        </nav>
-        <div id="texto2">
-        <strong id="texto2">¡BIENVENIDO!</strong>
-            </div>
-        <div id="texto">
-        <form id = "form-ingresar" action="registro.php" method="post">
-            <strong>SOMOS DISTRIBUIDORES</strong>
-            <h4>DIRECTOS DE LAS MEJORES MARCAS</h4>
-            <button  type="submit" class="button">Ingresar</button>
-        </form>
         </div>
     </body>
-    
 </html>
