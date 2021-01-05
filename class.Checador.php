@@ -1,3 +1,14 @@
+<html>
+    <head>
+        <title>Acabados Contemporaneos</title>
+        <!-- CSS BOOTSTRAP-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        
+        <script src="scripts/bootstrap.js"></script>
+        <style type="text/css">
+            #h3{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:25px; }
+        </style>
+    </head>
 <?php
     date_default_timezone_set('America/Tijuana');
     class Checador{
@@ -133,10 +144,10 @@
                 $consulta = mysqli_query($con_mysql, $comando);
                 if(!$consulta){ echo mysqli_error($con_mysql); }
                 if ($c == 4)
-                { echo "Ya has terminado tu jornada laboral"; }
+                { echo "<h3 id='mensaje'>Ya has terminado tu jornada laboral</h3>"; }
                 mysqli_close($con_mysql);
             }
-            else { echo "Ya has terminado tu jornada laboral"; }
+            else { echo "<h3 id='mensaje'>Ya has terminado tu jornada laboral</h3>"; }
         }      
     }
 ?>
