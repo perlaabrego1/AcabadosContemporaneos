@@ -82,17 +82,7 @@ BEGIN
 END; // 
 DELIMITER ; 
 call consultaListaEmp();
-/*procedimiento para registrar checada*/
-DELIMITER // 
-CREATE PROCEDURE generarChec(id varchar(30), cant int) 
-BEGIN 
-	set @folio = (select max(NoFolio) from listaemp);
-	update listaemp set cantChecadas = cant, fechaAsist = curdate(),
-    hora = (select time (NOW()) )
-	where (NoFolio = @folio and idEmpleado = id);
-END; // 
-DELIMITER ; 
-call generarChec(id, cantidad);
+/*Cosultar checadas*/
 DELIMITER // 
 CREATE PROCEDURE consultarChecada(id varchar(30)) 
 BEGIN 
