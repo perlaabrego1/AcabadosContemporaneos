@@ -164,15 +164,10 @@
                                     $c = $c + 1;
                                     mysqli_close($con_mysql);
                                     $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
-                                    $comando = "call generarChec($usr, $c);";
-                                    $consulta = mysqli_query($con_mysql, $comando);
-                                    if(!$consulta){
-                                        echo mysqli_error($con_mysql);
-                                    }
-                                    if ($c == 4)
-                                    {
-                                        echo "Ya has terminado tu jornada laboral";
-                                        $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
+                                    
+
+                                    #test
+                                    $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
                                         $comando = "select max(NoFolio) as 'max' from listaemp";
                                         $consulta = mysqli_query($con_mysql, $comando);
                                         if($consulta)
@@ -192,7 +187,8 @@
                                         switch(date("N"))
                                         {
                                             case 1:
-                                                $comando = "update ListaEmp set  dia1 = $c where idEmpleado =  $usr and NoFolio = $fol";
+                                                $comando = "update ListaEmp set fechaAsist = curdate(), hora = (select time (NOW()) ),
+                                                dia1 = $c where idEmpleado =  $usr and NoFolio = $fol";
                                                 break;
                                             case 2:
                                                 $comando = "update ListaEmp set  dia2 = $c where idEmpleado =  $usr";
@@ -212,6 +208,18 @@
                                         }
                                         $consulta = mysqli_query($con_mysql, $comando);
                                         mysqli_close($con_mysql);
+                                    #test
+                                    
+                                    
+                                    $comando = "call generarChec($usr, $c);";
+                                    $consulta = mysqli_query($con_mysql, $comando);
+                                    if(!$consulta){
+                                        echo mysqli_error($con_mysql);
+                                    }
+                                    if ($c == 4)
+                                    {
+                                        echo "Ya has terminado tu jornada laboral";
+                                        
 
                                     }
                                 }
