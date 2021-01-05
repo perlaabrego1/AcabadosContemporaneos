@@ -117,28 +117,29 @@
                 switch(date("N"))
                 {
                     case 1:
+                        
                         $comando = "update ListaEmp set fechaAsist = curdate(), hora = (select time (NOW()) ),
-                        dia1 = $c where idEmpleado =  $usr and NoFolio = $fol";
+                        dia1 = $c, hrC_dia1 = CURRENT_TIMESTAMP where idEmpleado =  $usr and NoFolio = $fol";
                         break;
                     case 2:
                         $comando = "update ListaEmp set fechaAsist = curdate(), hora = (select time (NOW()) ),
-                        dia2 = $c where idEmpleado =  $usr and NoFolio = $fol";
+                        dia2 = $c, hrC_dia2 = CURRENT_TIMESTAMP where idEmpleado =  $usr and NoFolio = $fol";
                         break;
                     case 3:
                         $comando = "update ListaEmp set fechaAsist = curdate(), hora = (select time (NOW()) ),
-                        dia3 = $c where idEmpleado =  $usr and NoFolio = $fol";
+                        dia3 = $c, hrC_dia3 = CURRENT_TIMESTAMP where idEmpleado =  $usr and NoFolio = $fol";
                         break;
                     case 4:
                         $comando = "update ListaEmp set fechaAsist = curdate(), hora = (select time (NOW()) ),
-                        dia4 = $c where idEmpleado =  $usr and NoFolio = $fol";
+                        dia4 = $c, hrC_dia4 = CURRENT_TIMESTAMP where idEmpleado =  $usr and NoFolio = $fol";
                         break;
                     case 5:
                         $comando = "update ListaEmp set fechaAsist = curdate(), hora = (select time (NOW()) ),
-                        dia5 = $c where idEmpleado =  $usr and NoFolio = $fol";
+                        dia5 = $c, hrC_dia5 = CURRENT_TIMESTAMP where idEmpleado =  $usr and NoFolio = $fol";
                         break;
                     case 6:
                         $comando = "update ListaEmp set fechaAsist = curdate(), hora = (select time (NOW()) ),
-                        dia6 = $c where idEmpleado =  $usr and NoFolio = $fol";
+                        dia6 = $c, hrC_dia6 = CURRENT_TIMESTAMP where idEmpleado =  $usr and NoFolio = $fol";
                         break;
                 }
                 $consulta = mysqli_query($con_mysql, $comando);
@@ -149,5 +150,22 @@
             }
             else { echo "<h3 id='mensaje'>Ya has terminado tu jornada laboral</h3>"; }
         }      
+        function Cantidad ($c)
+        {
+            #Aqui va la condicion del conteo de horas trabajadas para registrarlas en  hrsTrabajadas_dia1 int,
+            switch($c)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                default:
+                break;
+            }
+        }
     }
 ?>
