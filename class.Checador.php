@@ -131,10 +131,10 @@
                         break;
                 }
                 $consulta = mysqli_query($con_mysql, $comando);
-                mysqli_close($con_mysql);
                 if(!$consulta){ echo mysqli_error($con_mysql); }
                 if ($c == 4)
                 { echo "Ya has terminado tu jornada laboral"; }
+                mysqli_close($con_mysql);
             }
             else { echo "Ya has terminado tu jornada laboral"; }
         }      
