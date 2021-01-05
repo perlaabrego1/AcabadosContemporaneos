@@ -9,7 +9,7 @@ ApellidoMat varchar(30),
 CURP varchar(30),
 RFC varchar(30),
 NSS varchar(30),
-Puesto varchar(30));
+Puesto varchar(100));
 
 create table Listas(
 NoFolio int primary key auto_increment,
