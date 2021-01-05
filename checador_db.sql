@@ -36,8 +36,6 @@ contraseña varchar(20),
 foreign key(idEmpleado) references Empleados(idEmpleado));
 
 /*Pruebas*/
-
-
 /*Inserciones*/
 /*Empleados y login */
 /*Procedimiento para dar de alta al empleado y al mismo tiempo
@@ -93,5 +91,12 @@ BEGIN
 	set @folio = (select max(NoFolio) as 'foliomax' from listaemp);
 	select idEmpleado, fechaAsist, dia1, dia2, dia3, dia4, dia5, dia6, hora from ListaEmp
 	where (NoFolio = @folio and idEmpleado = id);
+END; // 
+DELIMITER ; 
+/*Diferencia de horas en minutos*/   
+DELIMITER // 
+CREATE PROCEDURE diferencia(anterior varchar(30)) 
+BEGIN 
+    SELECT TIMESTAMPDIFF(MINUTE,anterior, CURRENT_TIMESTAMP) as 'Diferencia';
 END; // 
 DELIMITER ; 
