@@ -56,9 +56,13 @@ BEGIN
     insert into _Login values (idEmpleado, CURP);
 END; // 
 DELIMITER ; 
-call altaEmpleado ('100', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');/*Se debe mandar a llamar al procedimiento para dar de alta al empleado */
-call altaEmpleado ('110', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');
-call altaEmpleado ('120', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Puesto');
+call altaEmpleado ('100', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Empleado de piso');/*Se debe mandar a llamar al procedimiento para dar de alta al empleado */
+call altaEmpleado ('110', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Empleado de piso');
+call altaEmpleado ('120', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Empleado de piso');
+call altaEmpleado ('130', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Chofer');
+call altaEmpleado ('140', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Almacenista');
+call altaEmpleado ('150', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Chofer');
+call altaEmpleado ('200', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Almacenista');
 /*Listas*/
 /*procedimiento que al generar una lista, inserta a todos los empleados existentes en la base de datos*/
 DELIMITER // 
