@@ -79,25 +79,7 @@
                         </div>
                     </div>
 
-                    <!--<input type=text name= "inp_usr"  placeholder = "ID" required> </input>-->
-                    <?php #Genera los empleados activos en ese momento
-                        include 'class.checador.php';
-                        $obj = new Checador();
-                        $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
-                        echo'<select id=empleado name = inp_usr required>';
-                        $comando = "call consultaListaEmp();";
-                        $consulta = mysqli_query($con_mysql, $comando);
-                        $cant_filas = mysqli_num_rows($consulta);
-                        if($cant_filas == 0)
-                            echo '<option value="" disabled selected>No hay empleados registrados</option>';
-                        else{
-                            $contador = 0;
-                            echo "Vuelve a ingresar";
-                           
-                        }
-                        echo'</select>';
-
-                    ?>   
+                    <!--<input type=text name= "inp_usr"  placeholder = "ID" required> </input>--> 
                 </form>  
             </div>
 
@@ -117,6 +99,8 @@
                         <tr>
                             <?php #Verifica datos ingresados
                                 date_default_timezone_set('America/Tijuana');
+                                include 'class.checador.php';
+                                $obj = new Checador();
                                 if($_POST)
                                 {
                                     $usr = $_REQUEST['inp_usr'];
