@@ -3,52 +3,82 @@
         <title>Acabados Contemporaneos</title>
         <!-- CSS BOOTSTRAP-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        
         <script src="scripts/bootstrap.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
         <style type="text/css">
-            body{background-image:url(img/login3.jpg);  background-size: cover;color:black;}   
+            body{background-image:url(img/entrarr.jpg);  background-size: cover;color:black;}   
             * {padding: 0; margin: 0; font-family: century gothic; text-align: center;}
             #principal{display: block; width: 100%; height: 100%; min-width: 900; min-height: 640; max-height: 100%;}
-            form {box-shadow: inset 0 0 0 var(--border-size) currentcolor; background-color: #001a1a66;  margin: 0 auto;align-content: center;border: 1px solid #666666;width: 790px; height:85%;}
+            form {  margin: 0 auto;align-content: center;width: 800px; height:85%;}
             #form-ingresar{position: absolute;}
             strong{text-align: center; padding: 12px; color: maroon; font-family: century gothic; font-size:30px }
             h4{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:25px }
             button {width: calc(100% - 20px); padding: 9px; margin: auto; margin-top: 12px; font-size: 20px}
             button[type='submit']{background-color: #000066; color: #fff;  width: 300px; margin: 0 10%; margin-top: 30px; border: none;}
             .button:hover {background-color: #006699} 
-            .boton1{background-color: #F7F9F9; width: 200px; padding: 9px; margin: auto;  font-size: 20px; color: black;  border: none;border-width: 1px;border-style: solid;border-color: black;}
+            .boton1{background-color: #ff9933; border-radius: 20px; width: 150px; padding: 9px; margin: auto;  font-size: 20px; color: black;  border: none;border-width: 1px;border-style: solid;border-color: black;}
             input{font-size:20px}
             #empleado{font-size:20px}
             #usuario{width: 30%; }
             #datos{font-size:30px; color: Maroon;background-color: #ff8080;}
             #datos2{text-align: center;}
-            #dts{font-size:30px; color: #00cc00;background-color: #b3ffb3;}
-            #dts2{text-align: center; font-size:10px;}
             h3{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:10px;} 
-            #dch{float: right;  height: 85%; width:48%; background-color: black; color: white; } 
+            #dch{float: right;margin-bottom: 5px;padding-top: 20px;width: 40%;height: 87%;max-width:50%;margin: auto;color:#fff;background: rgba(0,0,0,.5); line-height: 1em;} 
             #texto2{color: white; letter-spacing: .1em;text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a; font-size: 30px;}   
-            #emp{margin-top:50px}
+            #emp{margin-top:80px;}
+            .wrap {width: 90%;max-width: 1000px;margin: auto;color:#fff;}
+            .widget {width: 100%;height: 60%;margin: 2em;}
+            .widget p {display: inline-block;line-height: 1em;}
+            .fecha {font-family: Oswald, arial;text-align: center;font-size: 40px;margin-bottom: 5px;background: rgba(0,0,0,.5);padding: 20px;width: 100%;}
+            .reloj {font-family:Oswald, arial;width: 100%;padding: 20px;font-size: 80px;text-align: center;background: rgba(0,0,0,.5);}
+            .reloj .cajaSegundos {display: inline-block;  }
+            .reloj .ampm, .reloj .segundos{display: block;font-size: 2rem;}
         </style>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
     </head>
     
     <body>
         <div id = "principal">
-            <nav class="navbar navbar-light" style="background-color: #F7F9F9">
-                <div class="navbar-brand">
-                    <img src="img/logo.png" ></img>
+            <nav class="navbar navbar-light" style="background-color: #0c1a27">
+                <div class="navbar-brand">  
+                <button onclick="location.href='registro.php'" class="boton1">
+	            <i class="fa fa-reply" aria-hidden="true"></i> Regresar
+                </button>      
                 </div>
                 <div>
-                    <button onclick="location.href='index.php'" class="boton1">Salir</button>
+                <button onclick="location.href='index.php'" class="boton1">
+	            <i class="fa fa-home" aria-hidden="true"></i> Salir
+                </button>
                 </div>
             </nav>
             <div id = "izq">      
                 <form id = "form-ingresar" action="registro.php" method="post">
-                <div id = "emp"> 
-                <strong id="texto2">INGRESE SU ID Y CONTRASEÑA</strong>
-                    <div class="form-group" align="center">
-                            <img id="usuario" src="img/usuario.png" ></img>
+                    <div id = "emp"> 
+                        <!--Código del reloj-->
+                        <div class="wrap">
+                            <div class="widget">
+                                <div class="fecha">
+                                    <p id="diaSemana" class="diaSemana"></p>, 
+                                    <p id="dia" class="dia"></p> 
+                                    <p>de</p>
+                                    <p id="mes" class="mes"></p> 
+                                    <p>del</p>
+                                    <p id="anio" class="anio"></p>
+                                </div>
+                            <div class="reloj">
+                                <p id="hora" class="hora"></p> 
+                                <p>:</p>
+                                <p id="minutos" class="minutos"></p> 
+                                <p>:</p>
+                                <div class="cajaSegundos">
+                                    <p id="ampm" class="ampm"></p>
+                                    <p id="segundos" class="segundos"></p>
+                                </div>
+                            </div>
                         </div>
-                    <h4></h4>
+                    </div>
+
                     <!--<input type=text name= "inp_usr"  placeholder = "ID" required> </input>-->
                     <?php #Genera los empleados activos en ese momento
                         include 'class.checador.php';
@@ -62,28 +92,20 @@
                             echo '<option value="" disabled selected>No hay empleados registrados</option>';
                         else{
                             $contador = 0;
-                            echo '<option value="" disabled selected>Seleccione su ID</option>';
-                            while($cant_filas != 0 && $contador<$cant_filas)
-                            {
-                                $dato = $consulta->fetch_object();
-                                $contenido = $dato->idEmpleado;
-                                echo '<option value = '.$contenido.'>'.$contenido.'</option>';
-                                $contador++;
-                            }
+                            echo "Vuelve a ingresar";
+                           
                         }
                         echo'</select>';
 
-                    ?>  
-                    <input type=password name= "inp_pswd"  placeholder = "Contraseña" required> </input>
-                    <button  type="submit" class="button">Checar</button>
+                    ?>   
                 </form>  
             </div>
 
             <div id = "dch">
             <div id = "emp"> 
                 <h2>INFORMACIÓN DE EMPLEADO</h2>
-                <table border="1" style="margin: 0 auto;"class="table table-bordered table-hover table-light ">
-                    <thead class="thead-dark ">
+                <table border="1" style="margin: 0 auto;"class="table table-bordered table-hover table-dark ">
+                    <thead class="bg-primary">
                         <tr>
                         <th  scope="col">ID</th>
                         <th scope="col">Fecha</th>
@@ -107,7 +129,9 @@
                                         $cant_filas = mysqli_num_rows($consulta);
                                         if($cant_filas != 0)
                                         {
-                                            echo "<h3 id='dts2'><span id=dts>Los datos ingresados son correctos</span></h3>";
+                                            #echo "<h3 id='dts2'><span id=dts>Los datos ingresados son correctos</span></h3>";
+                                            echo "<br>";
+                                            echo "<br>";
                                             mysqli_close($con_mysql);
                                             $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
                                             $obj->Checar($con_mysql, $_REQUEST['inp_usr']);
@@ -127,5 +151,6 @@
             </div>
             </div>
         </div>
+        <script src="reloj.js"></script>
     </body>
 </html>
