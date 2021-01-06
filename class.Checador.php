@@ -119,10 +119,41 @@
             else { echo "<h3 id='mensaje'>Ya has terminado tu jornada laboral</h3>"; }
             mysqli_close($con_mysql);
         }
-
+        function consultaSemana($con_mysql, $usr)
+        {
+            $comando = "call consultarSemana($usr);";
+            $consulta = mysqli_query($con_mysql, $comando);
+            $c = 0;
+            if($consulta)
+            {
+                $cant_filas = mysqli_num_rows($consulta);
+                if($cant_filas != 0)
+                {
+                    $contador = 0;
+                    while($cant_filas != 0 && $contador<$cant_filas)
+                    {
+                        $dato = $consulta->fetch_object();
+                        
+                        echo"
+                        <th scope='col'>$dato->NoFolio</th>
+                        <th scope='col'>$dato->idEmpleado</th>
+                        <th scope='col'>$dato->hrsTrabajadas_dia1</th>
+                        <th scope='col'>$dato->hrsTrabajadas_dia2</th>
+                        <th scope='col'>$dato->hrsTrabajadas_dia3</th>
+                        <th scope='col'>$dato->hrsTrabajadas_dia4</th>
+                        <th scope='col'>$dato->hrsTrabajadas_dia5</th>
+                        <th scope='col'>$dato->hrsTrabajadas_dia6</th>
+                        <th scope='col'>$dato->total</th>
+                        </tr>
+                        ";
+                        $contador++;
+                    }
+                }
+            }        
+        }
         
         
-    }
+    }#fin Clase
 
     function Cantidad ($con_mysql, $usr, $fol, $c)
         {

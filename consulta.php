@@ -32,13 +32,13 @@
                 <div class="navbar-brand">        
                 </div>
                 <div>
-                <button onclick="location.href='index.php'" class="boton1">
-	            <i class="fa fa-home" aria-hidden="true"></i> Salir
-                </button>
+                    <button onclick="location.href='index.php'" class="boton1">
+                        <i class="fa fa-home" aria-hidden="true"></i> Salir
+                    </button>
                 </div>
             </nav>
-                <form id = "form-ingresar" action="registro2.php" method="post">
-                <h2>CHECAR ENTRADA/SALIDA</h2>
+                <form id = "form-ingresar" action="consulta_login.php" method="post">
+                <h2>CONSULTA DE DATOS</h2>
                 <strong id="texto2">INGRESE SU ID Y CONTRASEÑA</strong>
                     <div class="form-group" align="center">
                             <img id="usuario" src="img/usuario.png" ></img>
@@ -67,7 +67,6 @@
                             }
                         }
                         echo'</select>';
-
                     ?>  
                     <input type=password name= "inp_pswd"  placeholder = "Contraseña" required> </input>
                     <button  type="submit" class="button">

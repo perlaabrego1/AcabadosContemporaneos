@@ -28,17 +28,34 @@
                 <div class="navbar-brand">
                     <img id="usuario" src="img/logo.png" ></img>
                 </div>
-                <a href= "consulta.php">Consultar</a>
+                <div>
+                    <button onclick="location.href='consulta.php'" class="boton1">
+                        <i class="fa fa-home" aria-hidden="true"></i> Regresar
+                    </button>
+                </div>
             </nav>
             <div id="texto2">
-            <strong id="texto2">¡BIENVENIDO!</strong>
-                </div>
-            <div id="texto">
-            <form id = "form-ingresar" action="registro.php" method="post">
-                <strong>SOMOS DISTRIBUIDORES</strong>
-                <h4>DIRECTOS DE LAS MEJORES MARCAS</h4>
-                <button  type="submit" class="button">Ingresar</button>
-            </form>
+                <strong id="texto2">
+                <?php
+                    $usr = $_REQUEST['inp_usr'];
+                    $pswd = $_REQUEST['inp_pswd'];
+                    $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
+                    $comando = "select * from _Login where idEmpleado = '$usr' and contraseña = '$pswd';";
+                    $consulta = mysqli_query($con_mysql, $comando);
+                    if($consulta)
+                    {
+                        $cant_filas = mysqli_num_rows($consulta);
+                        if($cant_filas != 0)
+                        {
+                            #echo "<h3 id='dts2'><span id=dts>Los datos ingresados son correctos</span></h3>";
+                            mysqli_close($con_mysql);
+                            header("Location: consulta_usr.php?varusr=$usr");
+                        }
+                        else
+                            echo "<h2 id='datos2'><span id=datos><strong>¡Error!</strong>Los datos ingresados son incorrectos</span></h2>";
+                    }
+                ?>
+                </strong>
             </div>
         </div>
     </body>

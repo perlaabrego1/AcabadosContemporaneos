@@ -112,8 +112,14 @@ BEGIN
     SELECT TIMESTAMPDIFF(MINUTE,anterior, CURRENT_TIMESTAMP) as 'Diferencia';
 END; // 
 DELIMITER ; 
-
-
+/*Consultar datos de empleado por semana*/
+DELIMITER // 
+CREATE PROCEDURE consultarSemana(id varchar(30)) 
+BEGIN 
+    select NoFolio, idEmpleado, hrsTrabajadas_dia1 , hrsTrabajadas_dia2 , hrsTrabajadas_dia3 , hrsTrabajadas_dia4 , hrsTrabajadas_dia5 , hrsTrabajadas_dia6 , SUM(hrsTrabajadas_dia1 + hrsTrabajadas_dia2 + hrsTrabajadas_dia3 + hrsTrabajadas_dia4 + hrsTrabajadas_dia5 + hrsTrabajadas_dia6) as 'total' from ListaEmp where idEmpleado = id
+    group by NoFolio;
+END; // 
+DELIMITER ; 
 /*Pruebas con horarios*/
 DELIMITER // 
 CREATE PROCEDURE _diferencia(anterior varchar(30), posterior varchar(30)) 
