@@ -82,9 +82,9 @@ BEGIN
     SET @id = LAST_INSERT_ID();
     insert into listaemp (NoFolio, idEmpleado)
     select @id, Empleados.idEmpleado from Empleados;
-    update listaemp set dia1 = 0, dia2 = 0, dia3 = 0, dia4 = 0, dia5 = 0, dia6 = 0;
+    update listaemp set dia1 = 0, dia2 = 0, dia3 = 0, dia4 = 0, dia5 = 0, dia6 = 0, hrsTrabajadas_dia1 = 0, hrsTrabajadas_dia2 = 0, hrsTrabajadas_dia3 = 0, hrsTrabajadas_dia4 = 0, hrsTrabajadas_dia5 = 0, hrsTrabajadas_dia6 = 0;
 END; // 
-DELIMITER ; 
+DELIMITER;
 call generarListas();/*se debe mandar a llamar al procedimiento para generarla*/
 
 /*consulta de los empleados en la lista por folio de la lista*/
@@ -112,3 +112,18 @@ BEGIN
     SELECT TIMESTAMPDIFF(MINUTE,anterior, CURRENT_TIMESTAMP) as 'Diferencia';
 END; // 
 DELIMITER ; 
+
+
+/*Pruebas con horarios*/
+DELIMITER // 
+CREATE PROCEDURE _diferencia(anterior varchar(30), posterior varchar(30)) 
+BEGIN 
+    SELECT TIMESTAMPDIFF(MINUTE,anterior, posterior) as 'Diferencia';
+END; // 
+DELIMITER ; 
+
+update ListaEmp set fechaAsist = curdate(), hora = (select time (NOW()) ),
+dia2 = 1, hrC_dia2 = "2021-01-05 09:00:00" where idEmpleado = 100 and NoFolio = 15;
+
+update ListaEmp set fechaAsist = curdate(), hora = (select time (NOW()) ),
+dia2 = 3, hrC_dia2 = "2021-01-05 12:00:00" where idEmpleado = 100 and NoFolio = 15;
