@@ -66,6 +66,8 @@ BEGIN
     insert into _Login values (idEmpleado, CURP);
 END; // 
 DELIMITER ; 
+
+
 call altaEmpleado ('100', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Empleado de piso');/*Se debe mandar a llamar al procedimiento para dar de alta al empleado */
 call altaEmpleado ('110', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Empleado de piso');
 call altaEmpleado ('120', 'Nombre', 'ApPat', 'ApMat', 'CURP', 'RFC', 'NSS', 'Empleado de piso');
@@ -82,9 +84,13 @@ BEGIN
     SET @id = LAST_INSERT_ID();
     insert into listaemp (NoFolio, idEmpleado)
     select @id, Empleados.idEmpleado from Empleados;
-    update listaemp set dia1 = 0, dia2 = 0, dia3 = 0, dia4 = 0, dia5 = 0, dia6 = 0, hrsTrabajadas_dia1 = 0, hrsTrabajadas_dia2 = 0, hrsTrabajadas_dia3 = 0, hrsTrabajadas_dia4 = 0, hrsTrabajadas_dia5 = 0, hrsTrabajadas_dia6 = 0;
+    update listaemp set dia1 = 0, dia2 = 0, dia3 = 0, dia4 = 0, dia5 = 0, dia6 = 0, hrsTrabajadas_dia1 = 0,
+    hrsTrabajadas_dia2 = 0, hrsTrabajadas_dia3 = 0, hrsTrabajadas_dia4 = 0, hrsTrabajadas_dia5 = 0,
+    hrsTrabajadas_dia6 = 0;
 END; // 
 DELIMITER;
+
+
 call generarListas();/*se debe mandar a llamar al procedimiento para generarla*/
 
 /*consulta de los empleados en la lista por folio de la lista*/
@@ -95,8 +101,12 @@ BEGIN
 	select idEmpleado from ListaEmp where NoFolio = @maxfolio;
 END; // 
 DELIMITER ; 
+
+
 call consultaListaEmp();
 /*Cosultar checadas*/
+
+
 DELIMITER // 
 CREATE PROCEDURE consultarChecada(id varchar(30)) 
 BEGIN 
@@ -105,6 +115,8 @@ BEGIN
 	where (NoFolio = @folio and idEmpleado = id);
 END; // 
 DELIMITER ; 
+
+
 /*Diferencia de horas en minutos*/   
 DELIMITER // 
 CREATE PROCEDURE diferencia(anterior varchar(30)) 
@@ -112,15 +124,23 @@ BEGIN
     SELECT TIMESTAMPDIFF(MINUTE,anterior, CURRENT_TIMESTAMP) as 'Diferencia';
 END; // 
 DELIMITER ; 
+
 /*Consultar datos de empleado por semana*/
+
 DELIMITER // 
 CREATE PROCEDURE consultarSemana(id varchar(30)) 
 BEGIN 
-    select NoFolio, idEmpleado, hrsTrabajadas_dia1 , hrsTrabajadas_dia2 , hrsTrabajadas_dia3 , hrsTrabajadas_dia4 , hrsTrabajadas_dia5 , hrsTrabajadas_dia6 , SUM(hrsTrabajadas_dia1 + hrsTrabajadas_dia2 + hrsTrabajadas_dia3 + hrsTrabajadas_dia4 + hrsTrabajadas_dia5 + hrsTrabajadas_dia6) as 'total' from ListaEmp where idEmpleado = id
+    select NoFolio, idEmpleado, hrsTrabajadas_dia1 , hrsTrabajadas_dia2 , hrsTrabajadas_dia3 ,
+    hrsTrabajadas_dia4 , hrsTrabajadas_dia5 , hrsTrabajadas_dia6 ,
+    SUM(hrsTrabajadas_dia1 + hrsTrabajadas_dia2 + hrsTrabajadas_dia3 + hrsTrabajadas_dia4 +
+    hrsTrabajadas_dia5 + hrsTrabajadas_dia6) as 'total'
+    from ListaEmp where idEmpleado = id
     group by NoFolio;
 END; // 
 DELIMITER ; 
+
 /*Pruebas con horarios*/
+
 DELIMITER // 
 CREATE PROCEDURE _diferencia(anterior varchar(30), posterior varchar(30)) 
 BEGIN 
