@@ -13,7 +13,7 @@ Puesto varchar(100));
 
 create table Listas(
 NoFolio int primary key auto_increment,
-periodoSemana int unique);
+periodoSemana int);
 
 create table ListaEmp(
 NoFolio int not null,
