@@ -11,7 +11,7 @@
             #principal{display: block; width: 100%; height: 100%; min-width: 900; min-height: 640; max-height: 100%; }
             form {  margin: 0 auto;align-content: center;width: 800px; height:80%;}
             #form-ingresar{position: absolute;}
-            strong{text-align: center; padding: 12px; color: maroon; font-family: century gothic; font-size:30px }
+            strong{text-align: center; padding: 12px; color: #ff4d4d; font-family: century gothic; font-size:30px }
             h4{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:25px }
             button {width: calc(100% - 20px); padding: 9px; margin: auto; margin-top: 12px; font-size: 20px}
             button[type='submit']{background-color: #000066; color: #fff;  width: 300px; margin: 0 10%; margin-top: 30px; border: none;}
@@ -20,8 +20,7 @@
             input{font-size:20px}
             #empleado{font-size:20px}
             #usuario{width: 30%; }
-            #datos{font-size:30px; color: Maroon;background-color: #ff8080;}
-            #datos2{text-align: center;}
+            #datos{text-align: center; padding: 12px; color:#ffffff; font-family: century gothic; font-size:30px }
             h3{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:10px;} 
             #general{margin:auto; margin-top:50px; width:960px;  margin-bottom: 2px; }
             #texto2{color: white; letter-spacing: .1em;text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a; font-size: 30px;}   

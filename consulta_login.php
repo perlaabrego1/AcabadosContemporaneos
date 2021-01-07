@@ -11,14 +11,15 @@
             #principal{display: block; width: 100%; height: 100%; min-width: 900; min-height: 640; max-height: 100%;}
             a{float: right; font-size: 25px;}
             form {box-shadow: inset 0 0 0 var(--border-size) currentcolor;padding: 50px 50px;   margin-top: 70px; padding-top: 28px; margin-bottom: 50px}
-            strong{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:30px }
+            strong{text-align: center; padding: 12px; color:#ff0000; font-family: century gothic; font-size:50px }
             h4{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:25px }
             button {width: 200px; padding: 9px; margin: auto; margin-top: 12px; font-size: 20px}
             button[type='submit']{background-color: #000066; color: #fff; width: 300px; margin: 0 10%; margin-top: 50px; border: none;}
             .button:hover {background-color: #006699}     
             #texto{background-color:#001a1a66;color: #e0dfdc;letter-spacing: .1em;}   
             #texto2{color: #1f262e; letter-spacing: .1em;text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a; font-size: 60px;}   
-        
+            #datos2{background-color:#666666;margin:auto; margin-top:50px; width:960px;  margin-bottom: 2px; }
+            #datos{text-align: center; padding: 12px; color:#ffffff; font-family: century gothic; font-size:50px }
         </style>
     </head>
     
@@ -52,7 +53,7 @@
                             header("Location: consulta_usr.php?varusr=$usr");
                         }
                         else
-                            echo "<h2 id='datos2'><span id=datos><strong>¡Error!</strong>Los datos ingresados son incorrectos</span></h2>";
+                            echo "<div id='datos2'><span id=datos><strong>¡Error!</strong>Los datos ingresados son incorrectos.</span></div>";
                     }
                 ?>
                 </strong>
