@@ -6,7 +6,7 @@
         <script src="scripts/bootstrap.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
         <style type="text/css">
-            body{background-image:url(img/fondoinicio2.png);  background-size: cover;color:black;}   
+            body{background-image:url(img/fondoinicio3.jpg);  background-size: cover;color:black;}   
             * {padding: 0; margin: 0; font-family: century gothic; text-align: center;}
             #principal{display: block; width: 100%; height: 100%; min-width: 900; min-height: 640; max-height: 100%; }
             form {  margin: 0 auto;align-content: center;width: 800px; height:80%;}
@@ -29,7 +29,7 @@
             .wrap {width: 60%;margin: auto;color:#fff;margin-left:25%; }
             .widget {width: 100%;height: 60%; }
             .widget p {display: inline-block;line-height: 1em;}
-            .fecha {font-family: Oswald, arial;text-align: center;font-size: 20px;margin-bottom: 2px;background: rgba(0,0,0,.5);padding: 20px;width: 100%;}
+            .fecha {font-family: Oswald, arial;text-align: center;font-size: 30px;margin-bottom: 2px;background: rgba(0,0,0,.5);padding: 20px;width: 100%;}
             .reloj {font-family:Oswald, arial;width: 100%;font-size: 50px;text-align: center;background: rgba(0,0,0,.5);}
             .reloj .cajaSegundos {display: inline-block;  }
             .reloj .ampm, .reloj .segundos{display: block;font-size: 2rem;}
