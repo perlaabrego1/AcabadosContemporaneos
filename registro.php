@@ -7,7 +7,7 @@
         <script src="scripts/bootstrap.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
         <style type="text/css">
-            body{background-image:url(img/entrarr.jpg);  background-size: cover;color:black;}   
+            body{background-image:url(img/fondoinicio2.png);  background-size: cover;color:black;}   
             * {padding: 0; margin: 0; font-family: century gothic; text-align: center;}
             #principal{display: block; width: 100%; height: 100%; min-width: 800; min-height: 640; max-height: 100%;}
             form {border-radius: 20px;box-shadow: inset 0 0 0 var(--border-size) currentcolor;padding: 30px 30px; background-color: #ffffe666; margin: calc(25% + 60px); font-size: 25px; margin-top: 20px; padding-top: 15px; margin-bottom: 0px}
@@ -21,7 +21,8 @@
             input{font-size:20px}
             #usuario{width: 30%; }
             h3{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:10px;} 
-            #texto2{color: #0c1a27; letter-spacing: .1em; font-size: 40px;}   
+            #texto2{color: #0c1a27; letter-spacing: .1em; font-size: 40px;} 
+            #texto3{font-size: 30px}  
 
         </style>
     </head>
@@ -38,8 +39,8 @@
                 </div>
             </nav>
                 <form id = "form-ingresar" action="registro2.php" method="post">
-                <h2>CHECAR ENTRADA/SALIDA</h2>
-                <strong id="texto2">INGRESE SU ID Y CONTRASEÑA</strong>
+                <strong id="texto2">CHECAR ENTRADA/SALIDA</strong>
+                <h2 id = "texto3">INGRESE SU ID Y CONTRASEÑA</h2>
                     <div class="form-group" align="center">
                             <img id="usuario" src="img/usuario.png" ></img>
                         </div>

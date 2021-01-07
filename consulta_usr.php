@@ -6,10 +6,10 @@
         <script src="scripts/bootstrap.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
         <style type="text/css">
-            body{background-image:url(img/entrarr.jpg);  background-size: cover;color:black;}   
+          body{background-image:url(img/fondoinicio2.png);  background-size: cover;color:black;}   
             * {padding: 0; margin: 0; font-family: century gothic; text-align: center;}
-            #principal{display: block; width: 100%; height: 100%; min-width: 900; min-height: 640; max-height: 100%;}
-            form {  margin: 0 auto;align-content: center;width: 800px; height:85%;}
+            #principal{display: block; width: 100%; height: 100%; min-width: 900; min-height: 640; max-height: 100%; }
+            form {  margin: 0 auto;align-content: center;width: 800px; height:80%;}
             #form-ingresar{position: absolute;}
             strong{text-align: center; padding: 12px; color: maroon; font-family: century gothic; font-size:30px }
             h4{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:25px }
@@ -23,16 +23,19 @@
             #datos{font-size:30px; color: Maroon;background-color: #ff8080;}
             #datos2{text-align: center;}
             h3{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:10px;} 
-            #dch{float: right;margin-bottom: 5px;padding-top: 20px;width: 40%;height: 87%;max-width:50%;margin: auto;color:#fff;background: rgba(0,0,0,.5); line-height: 1em;} 
+            #general{margin:auto; margin-top:50px; width:960px;  margin-bottom: 2px; }
             #texto2{color: white; letter-spacing: .1em;text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a; font-size: 30px;}   
-            #emp{margin-top:80px;}
-            .wrap {width: 90%;max-width: 1000px;margin: auto;color:#fff;}
-            .widget {width: 100%;height: 60%;margin: 2em;}
+            #emp{margin-top:90px;margin-left:27px; width:900px; height:80%;  color:white; background: rgba(0,0,0,.5);}
+            .wrap {width: 60%;margin: auto;color:#fff;margin-left:25%; }
+            .widget {width: 100%;height: 60%; }
             .widget p {display: inline-block;line-height: 1em;}
-            .fecha {font-family: Oswald, arial;text-align: center;font-size: 40px;margin-bottom: 5px;background: rgba(0,0,0,.5);padding: 20px;width: 100%;}
-            .reloj {font-family:Oswald, arial;width: 100%;padding: 20px;font-size: 80px;text-align: center;background: rgba(0,0,0,.5);}
+            .fecha {font-family: Oswald, arial;text-align: center;font-size: 20px;margin-bottom: 2px;background: rgba(0,0,0,.5);padding: 20px;width: 100%;}
+            .reloj {font-family:Oswald, arial;width: 100%;font-size: 50px;text-align: center;background: rgba(0,0,0,.5);}
             .reloj .cajaSegundos {display: inline-block;  }
             .reloj .ampm, .reloj .segundos{display: block;font-size: 2rem;}
+            #chequeo{width:840px; height:200px; margin-bottom: 2px; }
+            thead{color:black}
+            #mensaje{text-align: center; padding: 12px; color: #F7F9F9; font-family: century gothic; font-size:25px; }
         </style>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
@@ -52,9 +55,9 @@
                 </button>
                 </div>
             </nav>
-            <div id = "izq">      
+            <div id = "general">      
                 <form id = "form-ingresar" action="registro.php" method="post">
-                    <div id = "emp"> 
+                    <div id = "chequeo"> 
                         <!--Código del reloj-->
                         <div class="wrap">
                             <div class="widget">
@@ -81,13 +84,12 @@
 
                     <!--<input type=text name= "inp_usr"  placeholder = "ID" required> </input>--> 
                 </form>  
-            </div>
 
-            <div id = "dch">
             <div id = "emp"> 
-                <h2>INFORMACIÓN DE EMPLEADO</h2>
+                <h2 class="bg-primary">HORAS LABORADAS DEL EMPLEADO</h2><br>
+                <h3 ></h3> 
                 <table border="1" style="margin: 0 auto;"class="table table-bordered table-hover table-dark ">
-                    <thead class="bg-primary">
+                    <thead style="background-color: #ffcc66">
                         <tr>
                         <th  scope="col"># Folio</th>
                         <th  scope="col">ID</th>
@@ -116,7 +118,6 @@
                         </tr>
                     </tbody>
                 </table> 
-            </div>
             </div>
         </div>
         <script src="reloj.js"></script>

@@ -298,7 +298,7 @@
             {
                 case 1:
                     $temp = $cant1;
-                    $comando = "call _diferencia('$hr1')";
+                    $comando = "call _diferencia('$hr1' , CURRENT_TIMESTAMP)";
                     break;
                 case 2:
                     $temp = $cant2;
@@ -306,19 +306,19 @@
                     break;
                 case 3:
                     $temp = $cant3;
-                    $comando = "call _diferencia('$hr3')";
+                    $comando = "call _diferencia('$hr3', CURRENT_TIMESTAMP)";
                     break;
                 case 4:
                     $temp = $cant4;
-                    $comando = "call _diferencia('$hr4')";
+                    $comando = "call _diferencia('$hr4', CURRENT_TIMESTAMP)";
                     break;
                 case 5:
                     $temp = $cant5;
-                    $comando = "call _diferencia('$hr5')";
+                    $comando = "call _diferencia('$hr5', CURRENT_TIMESTAMP)";
                     break;
                 case 6:
                     $temp = $cant6;
-                    $comando = "call _diferencia('$hr6')";
+                    $comando = "call _diferencia('$hr6', CURRENT_TIMESTAMP)";
                     break;
             }
             $consulta = mysqli_query($con_mysql, $comando);

@@ -7,7 +7,7 @@
         <script src="scripts/bootstrap.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
         <style type="text/css">
-            body{background-image:url(img/entrarr.jpg);  background-size: cover;color:black;}   
+            body{background-image:url(img/fondoinicio2.png);  background-size: cover;color:black;}   
             * {padding: 0; margin: 0; font-family: century gothic; text-align: center;}
             #principal{display: block; width: 100%; height: 100%; min-width: 800; min-height: 640; max-height: 100%;}
             form {border-radius: 20px;box-shadow: inset 0 0 0 var(--border-size) currentcolor;padding: 30px 30px; background-color: #ffffe666; margin: calc(25% + 60px); font-size: 25px; margin-top: 20px; padding-top: 15px; margin-bottom: 0px}
@@ -38,8 +38,8 @@
                 </div>
             </nav>
                 <form id = "form-ingresar" action="consulta_login.php" method="post">
-                <h2>CONSULTA DE DATOS</h2>
-                <strong id="texto2">INGRESE SU ID Y CONTRASEÑA</strong>
+                <strong id="texto2">CONSULTA DE DATOS</strong>
+                <h2>INGRESE SU ID Y CONTRASEÑA</h2>
                     <div class="form-group" align="center">
                             <img id="usuario" src="img/usuario.png" ></img>
                         </div>
@@ -70,7 +70,7 @@
                     ?>  
                     <input type=password name= "inp_pswd"  placeholder = "Contraseña" required> </input>
                     <button  type="submit" class="button">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i> Checar
+                    <i class="fa fa-sign-out" aria-hidden="true"></i> Entrar
                     </button>
                 </form>              
         </div>
