@@ -34,6 +34,7 @@
             .reloj .ampm, .reloj .segundos{display: block;font-size: 2rem;}
             #chequeo{width:840px; height:200px; margin-bottom: 2px; }
             thead{color:black}
+            #notes{font-family:large;}
         </style>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
@@ -124,13 +125,16 @@
                                             $con_mysql = mysqli_connect("127.0.0.1", "root", "", "checador_db") or die ("Problemas de conexión");
                                             $obj->consultaChecada($con_mysql, $usr);
                                             #header("Location: registro.php");
+
                                         }
                                         else
-                                            echo "<h2 id='datos2'><span id=datos><strong>¡Error!</strong>Los datos ingresados son incorrectos</span></h2>";
+                                           #echo "<h2 id='datos2'><span id=datos><strong>¡Error!</strong>Los datos ingresados son incorrectos</span></h2>"; 
+                                            echo "<id='notes'><script type='text/javascript'>
+                                            alert('LOS DATOS INGRESADOS SON INCORRECTOS');
+                                            </script>";
                                     }
                                 }
-                                #Aqui irian las dos funciones***
-                            ?>
+                             ?>
                         </tr>
                     </tbody>
                 </table> 
